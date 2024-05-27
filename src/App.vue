@@ -1,3 +1,4 @@
+<!-- eslint-disable no-unused-vars -->
 <script setup>
 import UserComp from './components/UserComp.vue';
 </script>
@@ -13,7 +14,7 @@ import UserComp from './components/UserComp.vue';
 <div v-if="users.length == 0">
   <h3>Нет пользователей</h3>
 </div>
-  <UserComp v-for="(user, index) in users" :key="index" :user="user" :index="index" :users="users" />
+  <UserComp v-for="(user, index) in users" :key="index" :user="user" :index="index" :users="users" :deleteUser="deleteUser" />
 </template>
 
 <script>
@@ -34,7 +35,7 @@ export default {
         this.error = 'Имя слишком короткое';
         return;
      }
-     if (this.userPassw.length < 3) {
+     if (this.userPassw.length < 2) {
       this.error = 'Пароль слишком короткий';
       return;
      } 
@@ -51,6 +52,9 @@ export default {
     this.userPassw = '';
     this.userEmail = '';
     this.error = '';
+    },
+    deleteUser(index) {
+      this.users.splice(index, 1);
     },
   },
 }

@@ -1,6 +1,6 @@
 <!-- eslint-disable no-unused-vars -->
 <script setup>
-const props = defineProps(['user', 'index', 'users']);
+const props = defineProps(['user', 'index', 'users', 'deleteUser']);
 </script>
 
 <template>
@@ -26,9 +26,6 @@ export default {
     },
     btnDisappear() {
       this.btnClass = 'hide';
-    },
-    deleteUser(index) {
-      this.users.splice(index, 1);
     },
   }
 }
