@@ -13,7 +13,7 @@ import UserComp from './components/UserComp.vue';
 <div v-if="users.length == 0">
   <h3>Нет пользователей</h3>
 </div>
-  <UserComp v-for="(user, index) in users" :key="index" :user="user" :index="index" />
+  <UserComp v-for="(user, index) in users" :key="index" :user="user" :index="index" :users="users" />
 </template>
 
 <script>
@@ -51,7 +51,7 @@ export default {
     this.userPassw = '';
     this.userEmail = '';
     this.error = '';
-    }
+    },
   },
 }
 </script>
